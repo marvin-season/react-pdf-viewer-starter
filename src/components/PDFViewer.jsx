@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 
 const PDFViewer = ({workerUrl, fileUrl, onDocumentLoad}) => {
     const [isDocumentLoaded, setDocumentLoaded] = useState(false);
-    const [ value, setValue ] = useState('操作')
+    const [ value, setValue ] = useState('Simple')
 
     const searchPluginInstance = searchPlugin({
         // keyword: value,
@@ -20,7 +20,7 @@ const PDFViewer = ({workerUrl, fileUrl, onDocumentLoad}) => {
     };
 
     useEffect(() => {
-        if (isDocumentLoaded) {
+        if (value && isDocumentLoaded) {
             highlight(value);
         }
     }, [isDocumentLoaded, value]);
